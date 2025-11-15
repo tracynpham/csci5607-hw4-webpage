@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>CSCI 5607 Homework 4</title>
+</head>
+<body>
+    <header><img id="headerimage" src="images/gifs/headerimage4.gif"></header>
+    <main>
+        <h1>showcase of homework 4: opengl basics</h1>
+        <h2> part a: compile and run the demos</h2>
+        <div class="image-row">
+            <div class="image-container">
+                <small>TriangleColored.cpp</small>
+                <img src="images/png/trianglecolored.png" alt="triangle colored">
+            </div>
+            <div class="image-container">
+                <small>Cube3D.cpp</small>
+                <img src="images/gifs/cube3d.gif" alt="cube 3d">
+            </div>
+            <div class="image-container">
+                <small>CubeLit.cpp</small>
+                <img src="images/gifs/cubelit.gif" alt="cube lit">
+            </div>
+        </div>
+        <h4>ModelLoad.cpp models</h4>
+        <div class="image-row">
+            <div class="image-container">
+                <small>cube.txt</small>
+                <img src="images/gifs/model_cube.gif">
+            </div>
+            <div class="image-container">
+                <small>knot.txt</small>
+                <img src="images/gifs/model_knot.gif">
+            </div>
+            <div class="image-container">
+                <small>sphere.txt</small>
+                <img src="images/gifs/model_sphere.gif">
+            </div>
+            <div class="image-container">
+                <small>teapot.txt</small>
+                <small>lol my small cursor</small>
+                <img src="images/gifs/model_teapot.gif">
+            </div>
+        </div>
+        <h2> part b: quick checks questions </h2>
+        <p>q1: after removing the depth, it looks like the sides of the cube are rendering in front of each other. i learned more aobut
+            depth testing in <a href="https://learnopengl.com/Advanced-OpenGL/Depth-testing"> this link</a>, where it explains that depth testing 
+            performs a depth test, if it passes, the fragment is rendered and the depth buffer is updated w/ the new depth value. if it fails, the 
+            fragment is discarded
+        </p>
+        <div class="image-row">
+            <div class="image-container">
+                <small>regular Cube3D.cpp</small>
+                <img src="images/gifs/cube3d.gif" alt="cube 3d">
+            </div>
+            <div class="image-container">
+                <small>removed the call glEnable(GL_DEPTH_TEST)</small>
+                <img src="images/gifs/cube3d_depth.gif">
+            </div>
+            
+        </div>
+        <p>q2: the update you make to the code is <strong> "if (windowEvent.type == SDL_EVENT_KEY_UP && windowEvent.key.key == SDLK_Q)
+        quit = true;"</strong>, this makes it so the window exits when the "Q" key is pressed on our keyboard </p>
+        <br>
+        <p>
+            q3: in the fragment shader in CubeLit.cpp, there is a light direction vector: <strong>"const vec3 lightDir = vec3(0,1,1);"</strong>
+            i changed it to <strong>vec3(0, 1, -1)</strong> so that the light direction is below the cube, as displayed below
+        </p>
+        <div class="image-row">
+            <div class="image-container">
+                <small>from above, vec3(0, 1, 1)</small>
+                <img src="images/gifs/cubelit.gif">
+            </div>
+            <div class="image-container">
+                <small>from below, vec3(0, 1, -1)</small>
+                <img src="images/gifs/cubelit_below.gif">
+            </div>
+        </div>
+        <p>
+            q4:
+        </p>
+        <div class="image-row">
+            <div class="image-container">
+                <small>rotating view of triangle</small>
+                <img src="images/gifs/triangle.gif">
+            </div>
+            <div class="image-container">
+                <small>still view of the triangle</small>
+                <img src="images/png/triangle.png">
+            </div>
+        </div>
+
+        <h2>extra credit</h2>
+        <p> computer exercise 1.1: add keyboard based camera controller, added to Cube3d.cpp</p>
+        <div class="image-row">
+            <div class="image-container">
+                <small>using arrow keys to move camera</small>
+                <small>can use R key to reset position</small>
+                <img src="images/gifs/keyboard.gif">
+            </div>
+        </div>
+        <p> computer exercise 1.3: replace phong specularity model in ModelLoad.cpp w/ blinn-phong. the size of the highlight is considerably smaller and everything feels smoother</p>
+        <div class="image-row">
+            <div class="image-container">
+                <small>regular knot.txt</small>
+                <img src="images/gifs/model_knot.gif">
+            </div>
+            <div class="image-container">
+                <small>blinn-phong knot</small>
+                <img src="images/gifs/knot_blinn.gif">
+            </div>
+        </div>
+    
+        <h2>difficulties i encountered</h2>
+        <p id="difficulties">
+            everything in this homework was really straight forward. because we had used SDL for project 1, setting it up again was nothing hard.
+            the hardest part for me was making the triangle scene file. it was similar to what we did for raytracers, but i had to mess around a lot
+            with the numbers to render the correct triangle. another hard thing for me was small details such as the headers and moving #define statements 
+            into the right spot. i had to mess around with stuff before it stopped having build errors.
+            i think already doing key event things in project 1 as well as other classes helped me figure things out pretty quickly. 
+            thankful for the easy homework!
+        </p>
+    <a href="https://github.com/tracynpham/csci5607-hw4-webpage/blob/main/homework/homework4.zip">
+        link to download homework files
+    </a>
+</body>
+</html>
